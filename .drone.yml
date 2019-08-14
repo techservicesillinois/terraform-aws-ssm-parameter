@@ -1,0 +1,6 @@
+pipeline:
+  dummy:
+    image: plugins/ecr:1.0
+    when:
+      branch: [ develop, feature/*, issue_* ]
+
