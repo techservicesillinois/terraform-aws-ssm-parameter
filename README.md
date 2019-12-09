@@ -21,24 +21,21 @@ module "ssm" {
 
   name = "example"
 
-  parameters = [
-    {
-    name        = "foo_db_endpoint"
-    description = "Endpoint URL for foo database"
+  parameters = {
+    "foo_db_endpoint" = {
+      description = "Endpoint URL for foo database"
     },
 
-    {
-    name        = "foo_db_engine"
-    description = "Engine for foo database"
-    value       = "postgres"
+    "foo_db_engine" = {
+      description = "Engine for foo database"
+      value       = "postgres"
     },
 
-    {
-    name        = "foo_db_password"
-    description = "Password for foo database"
-    type        = "SecureString"
+    "foo_db_password" = {
+      description = "Password for foo database"
+      type        = "SecureString"
     },
-  ]
+  }
 }
 ```
 
@@ -56,11 +53,11 @@ The following arguments are supported:
 parameter
 ---------
 
-A parameter block consists of a list of maps. Each map entry supports the following keys:
+A parameter block consists of a map of maps. Each map's key represents
+a parameter name. The value stored under this key consists of another
+map that may contain the following keys:
 
 * `description` – (Optional) A description of the parameter. If not specified, a default value is assigned that draws attention to the need to provide a meaningful description.
-
-* `name` – (Required) The parameter name.
 
 * `type` – (Optional) The parameter's type. The values `String` and
 `SecureString` are permissible, with `String` being the default.
