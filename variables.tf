@@ -1,10 +1,10 @@
-variable "parameters" {
-  description = "Parameters expressed as a list of maps, each entry of which may contain the following keys: description, name, type, and value."
-  type        = list(map(string))
-}
-
 variable "name" {
   description = "Parameter name"
+}
+
+variable "parameters" {
+  description = "Parameters expressed as a map of maps. Each map's key is its intended SSM parameter name, and the value stored under that key is another map that may contain the following keys: description, type, and value."
+  type        = map(map(string))
 }
 
 variable "prefix" {
