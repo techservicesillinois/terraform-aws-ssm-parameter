@@ -50,6 +50,8 @@ The following arguments are supported:
 
 * `prefix` - (Optional) Prefix prepended to parameter name, and used to produce a hierarchical layout of parameters. Default: `/service`.
 
+* `tags` - (Optional) A map of tags to be applied to resources where supported.
+
 parameter
 ---------
 
