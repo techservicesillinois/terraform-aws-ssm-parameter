@@ -10,5 +10,8 @@ resource "aws_ssm_parameter" "default" {
   lifecycle {
     # Never update the value of an existing SSM parameter.
     ignore_changes = [value]
+
+    # Protect against destruction of persistent resource.
+    prevent_destroy = true
   }
 }
